@@ -3,20 +3,20 @@ pipeline {
     stages {
         stage('install') {
             steps {
-                sh 'install dependencies'
+                sh 'echo "install dependencies"'
             }
         }
-        // stage('build') {
-        //     steps {
-        //         sh 'npm run build'
-        //     }
-        // }
-        // stage('push oss') {
-        //     steps {
-        //         sh 'check oss is exists'
-        //         sh 'push resource to oss'
-        //     }
-        // }
+        stage('build') {
+            steps {
+                sh 'echo "npm run build"'
+            }
+        }
+        stage('push oss') {
+            steps {
+                sh 'echo "check oss is exists"'
+                sh 'echo "push resource to oss"'
+            }
+        }
     }
     post {
         always {
