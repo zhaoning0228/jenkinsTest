@@ -6,17 +6,17 @@ pipeline {
                 sh 'install dependencies'
             }
         }
-        stage('build') {
-            steps {
-                sh 'npm run build'
-            }
-        }
-        stage('push oss') {
-            steps {
-                sh 'check oss is exists'
-                sh 'push resource to oss'
-            }
-        }
+        // stage('build') {
+        //     steps {
+        //         sh 'npm run build'
+        //     }
+        // }
+        // stage('push oss') {
+        //     steps {
+        //         sh 'check oss is exists'
+        //         sh 'push resource to oss'
+        //     }
+        // }
     }
     post {
         always {
