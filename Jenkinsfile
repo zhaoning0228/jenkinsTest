@@ -1,9 +1,9 @@
 pipeline {
     agent { docker 'node:12' }
     stages {
-        stage('setHost') {
+        stage('sethost') {
             steps {
-                sh 'echo " todo: set hosts"'
+                sh 'echo "todo: set hosts"'
             }
         }
         stage('install') {
