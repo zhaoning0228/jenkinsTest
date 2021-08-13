@@ -1,12 +1,17 @@
 pipeline {
     agent { docker 'node:12' }
     stages {
-        stage('install') {
+        stage('add auth to folder') {
             steps {
-                sh 'echo "install dependencies"'
+                sh 'echo "add auth to folder"'
                 sh 'pwd'
                 sh 'ls'
                 sh 'chown -R 502:20 "/.npm"'
+            }
+        }
+        stage('install') {
+            steps {
+                sh 'echo "install dependencies"'
                 sh 'npm i --registry=http://121.41.142.212:7001'
             }
         }
