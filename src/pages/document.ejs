@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="keywords"
+      content="antd,umi,umijs,ant design,脚手架,布局, Ant Design,项目,Pro,admin,控制台,主页,开箱即用,中后台,解决方案,组件库"
+    />
+    <meta
+      name="description"
+      content="
+    An out-of-box UI solution for enterprise applications as a React boilerplate."
+    />
+    <meta
+      name="description"
+      content="
+      开箱即用的中台前端/设计解决方案。"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <title>cic-app</title>
+    <link rel="stylesheet" href="//xcloud.aliyuncs.com/build/prod/<%= context.config.define.legoKey %>/<%= context.config.define.legoVersion %>/web.css">
+    
+
+    <script>
+      window.APP_ENV = '<%= context.config.define.appEnv %>';
+      window.g_config = {
+      appKey: '<%= context.config.define.legoKey %>', // 乐高应用的 AppKey
+      isSectionalRender: true, // 必填，标记当前为局部使用
+      autoRender: false,
+    };</script>
+    
+    <link rel="icon" href="<%= context.config.publicPath +'favicon.ico'%>" type="image/x-icon" />
+  </head>
+  <body>
+    <noscript>Out-of-the-box mid-stage front/design solution!</noscript>
+    
+    <div id="root">
+      <style>
+        html,
+        body,
+        #root {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+        }
+        /* #root {
+          background: #fffdfe;
+        } */
+        .page-loading-warp {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 98px;
+        }
+        .ant-spin {
+          position: absolute;
+          display: none;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          color: rgba(0, 0, 0, 0.65);
+          color: #cf1322;
+          font-size: 14px;
+          font-variant: tabular-nums;
+          line-height: 1.5;
+          text-align: center;
+          vertical-align: middle;
+          list-style: none;
+          opacity: 0;
+          -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          transition: transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86),
+            -webkit-transform 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+          -webkit-font-feature-settings: 'tnum';
+          font-feature-settings: 'tnum';
+        }
+
+        .ant-spin-spinning {
+          position: static;
+          display: inline-block;
+          opacity: 1;
+        }
+
+        .ant-spin-dot {
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          font-size: 20px;
+        }
+
+        .ant-spin-dot-item {
+          position: absolute;
+          display: block;
+          width: 9px;
+          height: 9px;
+          background-color: #cf1322;
+          border-radius: 100%;
+          -webkit-transform: scale(0.75);
+          -ms-transform: scale(0.75);
+          transform: scale(0.75);
+          -webkit-transform-origin: 50% 50%;
+          -ms-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+          opacity: 0.3;
+          -webkit-animation: antSpinMove 1s infinite linear alternate;
+          animation: antSpinMove 1s infinite linear alternate;
+        }
+
+        .ant-spin-dot-item:nth-child(1) {
+          top: 0;
+          left: 0;
+        }
+
+        .ant-spin-dot-item:nth-child(2) {
+          top: 0;
+          right: 0;
+          -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+        }
+
+        .ant-spin-dot-item:nth-child(3) {
+          right: 0;
+          bottom: 0;
+          -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
+        }
+
+        .ant-spin-dot-item:nth-child(4) {
+          bottom: 0;
+          left: 0;
+          -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+        }
+
+        .ant-spin-dot-spin {
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+          -webkit-animation: antRotate 1.2s infinite linear;
+          animation: antRotate 1.2s infinite linear;
+        }
+
+        .ant-spin-lg .ant-spin-dot {
+          width: 32px;
+          height: 32px;
+          font-size: 32px;
+        }
+
+        .ant-spin-lg .ant-spin-dot i {
+          width: 14px;
+          height: 14px;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          .ant-spin-blur {
+            background: #fff;
+            opacity: 0.5;
+          }
+        }
+
+        @-webkit-keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
+
+        @-webkit-keyframes antRotate {
+          to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+          }
+        }
+
+        @keyframes antRotate {
+          to {
+            -webkit-transform: rotate(405deg);
+            transform: rotate(405deg);
+          }
+        }
+        .cic-loading-title {
+          margin: 0;
+          color: #262626;
+          font-weight: 600;
+          font-size: 38px;
+          font-family: PingFangSC-Semibold;
+          line-height: 60px;
+          text-align: center;
+        }
+      </style>
+      <div
+        style="
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          min-height: 700px;
+          height: 100%;
+        "
+      >
+        <p class="cic-loading-title">中华财险</p>
+        <p class="cic-loading-title">新一代核心中台系统</p>
+        <!-- <img src="<%= context.config.publicPath +'pro_icon.svg'%>" alt="logo" width="256" /> -->
+        <div class="page-loading-warp">
+          <div class="ant-spin ant-spin-lg ant-spin-spinning">
+            <span class="ant-spin-dot ant-spin-dot-spin"
+              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+              ><i class="ant-spin-dot-item"></i><i class="ant-spin-dot-item"></i
+            ></span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center">
+          <img
+            src="https://lamp-carrier-ci.oss-cn-hzfinance.aliyuncs.com/cic-public/loading-logo.png"
+            style="margin-right: 8px"
+          />
+        </div>
+      </div>
+    </div>
+    <script crossorigin="anonymous" src="//polyfill.alicdn.com/s/polyfill.min.js?features=default,es2017,es6,fetch,RegeneratorRuntime"></script>
+    <script crossorigin="anonymous" src="//g.alicdn.com/code/lib/jquery/1.11.3/jquery.min.js"></script>
+    <!-- react相关依赖，如有重复可不引 -->
+    <script crossorigin="anonymous" src="https://g.alicdn.com/code/lib/??react/17.0.0/umd/react.production.min.js,react-dom/17.0.0/umd/react-dom.production.min.js,react-router/5.1.2/react-router.min.js,react-router-dom/5.1.2/react-router-dom.min.js"></script>t>
+    <script crossorigin="anonymous" src="//g.alicdn.com/code/lib/prop-types/15.7.2/prop-types.js"></script>
+    <script crossorigin="anonymous"
+    src="//g.alicdn.com/platform/c/??react15-polyfill/0.0.1/dist/index.js,lie/3.0.2/dist/lie.polyfill.min.js,lodash/4.6.1/lodash.min.js,immutable/3.7.6/dist/immutable.min.js,highcharts/5.0.12/highcharts.js,highcharts/5.0.12/highcharts-more.js,highcharts/5.0.12/modules/map.js,highcharts/5.0.12/modules/funnel.js,natty-storage/2.0.2/dist/natty-storage.min.js,natty-fetch/2.6.0/dist/natty-fetch.pc.min.js,tinymce/4.2.5/tinymce-full.js"></script>
+
+
+    <script crossorigin="anonymous" src="//g.alicdn.com/vision/render-engine/7.4.0/render-engine.min.js"></script>
+    <script crossorigin="anonymous" src="//xcloud.aliyuncs.com/build/prod/<%= context.config.define.legoKey %>/<%= context.config.define.legoVersion %>/web.js"></script>
+  </body>
+</html>
