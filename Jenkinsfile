@@ -9,7 +9,9 @@ pipeline {
         stage('install') {
             steps {
                 sh 'echo "install dependencies"'
-                sh 'npm i --registry=http://121.41.142.212:7001'
+                sh 'pwd'
+                sh 'ls'
+                // sh 'npm i --registry=http://121.41.142.212:7001'
             }
         }
         stage('build') {
