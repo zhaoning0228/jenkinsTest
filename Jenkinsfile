@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo "add auth to folder"'
                 sh 'pwd'
                 sh 'ls'
-                sh 'ls /.npm'
+                // sh 'ls /.npm'
                 sh 'node -v'
             }
         }
