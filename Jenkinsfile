@@ -6,7 +6,6 @@ pipeline {
                 sh 'echo "add auth to folder"'
                 sh 'pwd'
                 sh 'ls'
-                sh 'chown -R 502:20 "/.npm"'
             }
         }
         stage('install') {
