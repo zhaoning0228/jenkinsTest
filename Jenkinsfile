@@ -6,7 +6,7 @@ pipeline {
                 sh 'echo "install dependencies"'
                 sh 'pwd'
                 sh 'ls'
-                sh 'sudo chown -R 502:20 "/.npm"'
+                sh 'chown -R 502:20 "/.npm"'
                 sh 'npm i --registry=http://121.41.142.212:7001'
             }
         }
