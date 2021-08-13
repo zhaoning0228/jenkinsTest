@@ -1,9 +1,15 @@
 pipeline {
     agent { docker 'node:12' }
     stages {
+        // stage('setHost') {
+        //     steps {
+        //         sh 'echo set hosts'
+        //     }
+        // }
         stage('install') {
             steps {
                 sh 'echo "install dependencies"'
+                sh 'npm i --registry=http://121.41.142.212:7001'
             }
         }
         stage('build') {
