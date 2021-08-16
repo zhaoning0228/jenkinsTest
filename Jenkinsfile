@@ -9,6 +9,7 @@ pipeline {
                 sh 'npm -v'
                 sh 'npm config list'
                 sh 'node -v'
+                sh 'export HOME=/Users/zouding'
             }
         }
         stage('install') {
