@@ -29,22 +29,22 @@ pipeline {
             }
         }
     }
-    // post {
-    //     always {
-    //         echo 'this will alway run'
-    //     }
-    //     success {
-    //         echo 'this will run only if success'
-    //     }
-    //     failure {
-    //         echo 'this will run only if failed'
-    //     }
-    //     unstable {
-    //         echo 'this will run only if thi run was marked as unstable'
-    //     }
-    //     changed {
-    //         echo 'This will run only'
-    //     }
-    // }
+    post {
+        always {
+            echo 'this will alway run'
+        }
+        success {
+            echo 'this will run only if success'
+        }
+        failure {
+            echo 'this will run only if failed'
+        }
+        unstable {
+            echo 'this will run only if thi run was marked as unstable'
+        }
+        changed {
+            echo 'This will run only'
+        }
+    }
 }
 
